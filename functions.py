@@ -16,20 +16,20 @@ def calculateProbability(item) :
         return 0.3
 
 
-def calculateIndexes(prefGraph, snapshotGraph, n) :
+def calculateIndexes(prefGraph, snapshotGraph, numNodes) :
 
     # Direct Sociometric Indexes
-    Sp = [0] * n # incoming edges to a node - elections
-    Pp = [0] * n # incoming edges to a node - perceptions of elections
-    Sn = [0] * n # incoming edges to a node - rejections
-    Pn = [0] * n # incoming edges to a node - perceptions of rejections
-    Rp = [0] * n # number of cases - reciprocal elections
-    Rn = [0] * n # number of cases - reciprocal rejections
-    Os = [0] * n # number of cases - feeling opposition (election & rejection)
-    Ep = [0] * n # outcoming edges from a node - elections
-    En = [0] * n # outcoming edges from a node - rejections
-    Pap = [0] * n # number of cases - have perception of election and get election
-    Pan = [0] * n # number of cases - have perception of rejection and get rejection
+    Sp = [0] * numNodes # incoming edges to a node - elections
+    Pp = [0] * numNodes # incoming edges to a node - perceptions of elections
+    Sn = [0] * numNodes # incoming edges to a node - rejections
+    Pn = [0] * numNodes # incoming edges to a node - perceptions of rejections
+    Rp = [0] * numNodes # number of cases - reciprocal elections
+    Rn = [0] * numNodes # number of cases - reciprocal rejections
+    Os = [0] * numNodes # number of cases - feeling opposition (election & rejection)
+    Ep = [0] * numNodes # outcoming edges from a node - elections
+    En = [0] * numNodes # outcoming edges from a node - rejections
+    Pap = [0] * numNodes # number of cases - have perception of election and get election
+    Pan = [0] * numNodes # number of cases - have perception of rejection and get rejection
 
     def isReciprocal(node1, node2, weight) :
         for u, v, data in prefGraph.edges(node2, data=True) :
@@ -82,20 +82,20 @@ def calculateIndexes(prefGraph, snapshotGraph, n) :
                 
     #Compound Sociometric Indexes
     #Individual
-    popularity = [item / (n - 1) for item in Sp] 
-    antipathy = [item / (n - 1) for item in Sn]
+    popularity = [item / (numNodes - 1) for item in Sp] 
+    antipathy = [item / (numNodes - 1) for item in Sn]
     affectiveConnection = [item1 / item2 if item2 != 0 else 0 for item1, item2 in zip(Rp, Sp)]
-    sociometricStatus = [(item1 + item2 - item3 - item4) / (n - 1) for item1, item2, item3, item4 in zip(Sp, Pp, Sn, Pn)]
-    positiveExpansion = [item/(n - 1) for item in Ep]
-    negativeExpansion = [item/(n - 1) for item in En]
-    realisticPerception = [(item1 + item2) / (item3 + item4) if (item3+item4) != 0 else 0 for item1, item2, item3, item4 in zip(Pap, Pan, Sp, Sn)]
+    sociometricStatus = [(item1 + item2 - item3 - item4) / (numNodes - 1) for item1, item2, item3, item4 in zip(Sp, Pp, Sn, Pn)]
+    positiveExpansion = [item / (numNodes - 1) for item in Ep]
+    negativeExpansion = [item / (numNodes - 1) for item in En]
+    realisticPerception = [(item1 + item2) / (item3 + item4) if (item3 + item4) != 0 else 0 for item1, item2, item3, item4 in zip(Pap, Pan, Sp, Sn)]
     
     #Group
-    association = sum(Rp) / (n* (n-1))
-    dissociation = sum(Rn) / (n * (n-1))
+    association = sum(Rp) / (numNodes* (numNodes - 1))
+    dissociation = sum(Rn) / (numNodes * (numNodes - 1))
     s = sum(Sp)
     cohesion =  sum(Rp) / s if s != 0 else 0
-    socialIntensity = (sum(Sp) + sum(Sn)) / (n - 1)
+    socialIntensity = (sum(Sp) + sum(Sn)) / (numNodes - 1)
 
     return {
         "individual": 
@@ -157,7 +157,7 @@ def analyzeQuiz(prefGraph, threshold, numNodes) :
     return possiblePeers
 
 
-def calculateIntensityAtTimestamp(snapshotGraph, numNodes) :
+def calculateIntensityForSnapshot(snapshotGraph, numNodes) :
     total = 0
     for node in range(numNodes) :
         count, sum = (0, 0)
@@ -166,3 +166,29 @@ def calculateIntensityAtTimestamp(snapshotGraph, numNodes) :
             sum += data["interaction_index"]
         total += count*sum
     return total
+
+
+def createSnapshot(numNodes, maxInteractions, degrees, possiblePeers, activitiesCount) :
+    numberOfInteractions = np.random.choice([2,3])
+    G = nx.Graph()
+    G.add_nodes_from(range(numNodes))
+
+    for node in range(numNodes) :
+        #find for a node how many additional interactions could we add with respect to maxInteractions parameter
+        possibleInteractions = maxInteractions - degrees[node]
+        if possibleInteractions <= 0 :
+            continue
+
+        possibleInteractions = min(numberOfInteractions, possibleInteractions)
+
+        #choose randomly from possible peers
+        peers = np.random.choice(possiblePeers[node], size=possibleInteractions, replace=False)
+        
+        #split possible ways of interaction in sublists and choose randomly an activity from each sublist
+        weights = [np.random.choice(sublist) for sublist in np.array_split(range(activitiesCount), possibleInteractions)]
+
+        #add new interaction to the graph
+        for peer, weight in zip(peers, weights) :
+            G.add_edge(node, peer, interaction_index=weight)
+                
+    return G
