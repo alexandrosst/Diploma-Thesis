@@ -192,3 +192,13 @@ def createSnapshot(numNodes, maxInteractions, degrees, possiblePeers, activities
             G.add_edge(node, peer, interaction_index=weight)
                 
     return G
+
+def getActivity(index) :
+    activities = ["to share content, chat in a social network platform",
+            "to participate in debate/group presentation & discussion",
+            "to play games",
+            "to study in group or work on collaborative projects",
+            "to be volunteers",
+            "to be teammates in a sports team"]
+    
+    return activities[index]
