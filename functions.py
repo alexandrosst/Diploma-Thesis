@@ -82,21 +82,23 @@ def calculateIndexes(prefGraph, snapshotGraph, numNodes) :
                 
     #Compound Sociometric Indexes
     #Individual
-    popularity = [item / (numNodes - 1) for item in Sp] 
-    antipathy = [item / (numNodes - 1) for item in Sn]
+    popularity = [item / (2*(numNodes - 1)) for item in Sp] 
+    antipathy = [item / (2*(numNodes - 1)) for item in Sn]
     affectiveConnection = [item1 / item2 if item2 != 0 else 0 for item1, item2 in zip(Rp, Sp)]
-    sociometricStatus = [(item1 + item2 - item3 - item4) / (numNodes - 1) for item1, item2, item3, item4 in zip(Sp, Pp, Sn, Pn)]
-    positiveExpansion = [item / (numNodes - 1) for item in Ep]
-    negativeExpansion = [item / (numNodes - 1) for item in En]
+    sociometricStatus = [(item1 + item2 - item3 - item4) / (4*(numNodes - 1)) for item1, item2, item3, item4 in zip(Sp, Pp, Sn, Pn)]
+    positiveExpansion = [item / (2*(numNodes - 1)) for item in Ep]
+    negativeExpansion = [item / (2*(numNodes - 1)) for item in En]
     realisticPerception = [(item1 + item2) / (item3 + item4) if (item3 + item4) != 0 else 0 for item1, item2, item3, item4 in zip(Pap, Pan, Sp, Sn)]
     
+    
     #Group
-    association = sum(Rp) / (numNodes* (numNodes - 1))
-    dissociation = sum(Rn) / (numNodes * (numNodes - 1))
+    association = sum(Rp) / (2*numNodes* (numNodes - 1))
+    dissociation = sum(Rn) / (2*numNodes * (numNodes - 1))
     s = sum(Sp)
     cohesion =  sum(Rp) / s if s != 0 else 0
-    socialIntensity = (sum(Sp) + sum(Sn)) / (numNodes - 1)
+    socialIntensity = (sum(Sp) + sum(Sn)) / (2*numNodes*(numNodes - 1))
 
+    
     return {
         "individual": 
             {
@@ -196,7 +198,7 @@ def createSnapshot(numNodes, maxInteractions, degrees, possiblePeers, activities
 
 def getActivity(index) :
     activities = ["to share content, chat in a social network platform",
-            "to participate in debate/group presentation & discussion",
+            "to participate in debate/group discussion & presentation",
             "to play games",
             "to study in group or work on collaborative projects",
             "to be volunteers",
