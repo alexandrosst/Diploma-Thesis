@@ -156,6 +156,15 @@ def analyzeQuiz(prefGraph, threshold, numNodes) :
     #step 2: keep all the other nodes as possible peers to interact with
     possiblePeers = list(map(lambda item : list(set(range(numNodes)) - set(item[1] + [item[0]])), enumerate(possiblePeers)))
     
+    for node, peers in enumerate(possiblePeers) :
+        d = dict()
+        for peer in peers :
+            try :
+                d[peer] = edgesProbabilities[(min(node, peer), max(node, peer))]
+            except :
+                d[peer] = 1 
+        possiblePeers[node] = d
+    
     return possiblePeers
 
 
@@ -171,28 +180,45 @@ def calculateIntensityForSnapshot(snapshotGraph, numNodes) :
 
 
 def createSnapshot(numNodes, maxInteractions, degrees, possiblePeers, activitiesCount) :
-    numberOfInteractions = np.random.choice([2,3])
+    # numberOfInteractions = np.random.choice([2,3])
+    numberOfInteractions = 1
     G = nx.Graph()
     G.add_nodes_from(range(numNodes))
 
+    # find for a node how many additional interactions we could add
+    possibleInteractions = [0]*numNodes
     for node in range(numNodes) :
-        #find for a node how many additional interactions could we add with respect to maxInteractions parameter
-        possibleInteractions = maxInteractions - degrees[node]
-        if possibleInteractions <= 0 :
+        possibleInteractions[node] = maxInteractions - degrees[node]
+        if possibleInteractions[node] <= 0 :
+            possibleInteractions[node] = 0
+        else :
+            possibleInteractions[node] = min(numberOfInteractions, possibleInteractions[node])
+    
+    for node in range(numNodes) :
+        if possibleInteractions[node] <= 0 :
             continue
-
-        possibleInteractions = min(numberOfInteractions, possibleInteractions)
-
+        
         #choose randomly from possible peers
-        peers = np.random.choice(possiblePeers[node], size=possibleInteractions, replace=False)
+        temp = [u for u in possiblePeers[node].keys() if possibleInteractions[u] >= 1 and not(G.has_edge(u, node))]
+        peers = list(np.random.choice(temp, size=possibleInteractions[node], replace=False))
+
+        peers.sort(key=possiblePeers[node].get, reverse=True)
         
         #split possible ways of interaction in sublists and choose randomly an activity from each sublist
-        weights = [np.random.choice(sublist) for sublist in np.array_split(range(activitiesCount), possibleInteractions)]
+        weights = [np.random.choice(sublist) for sublist in np.array_split(range(activitiesCount), possibleInteractions[node])]
+        
+        weights.sort(reverse=True)
 
         #add new interaction to the graph
         for peer, weight in zip(peers, weights) :
             G.add_edge(node, peer, interaction_index=weight)
-                
+            possibleInteractions[node] = max(possibleInteractions[node] - 1, 0)
+            possibleInteractions[peer] = max(possibleInteractions[peer] - 1, 0)
+            # if G.has_edge(node, peer) :
+            #     G[node][peer]["interaction_index"] = round(0.5*(weight + G[node][peer]["interaction_index"]))
+            # else :
+            #     G.add_edge(node, peer, interaction_index=weight)
+        # print(possibleInteractions)        
     return G
 
 
@@ -205,3 +231,4 @@ def getActivity(index) :
             "to be teammates in a sports team"]
     
     return activities[index]
+
