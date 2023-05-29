@@ -1,5 +1,7 @@
 import networkx as nx
 import numpy as np
+from collections import Counter
+import matplotlib.pyplot as plt
 
 def calculateProbability(item) :
     # preference
@@ -174,51 +176,62 @@ def calculateIntensityForSnapshot(snapshotGraph, numNodes) :
         count, sum = (0, 0)
         for u, v, data in snapshotGraph.edges(node, data=True) :
             count += 1
-            sum += data["interaction_index"]
+            sum += data["weight"]
         total += count*sum
     return total
 
 
-def createSnapshot(numNodes, maxInteractions, degrees, possiblePeers, activitiesCount) :
-    # numberOfInteractions = np.random.choice([2,3])
-    numberOfInteractions = 1
+def createSnapshot(numNodes, maxInteractions, possiblePeers) :
+
     G = nx.Graph()
     G.add_nodes_from(range(numNodes))
-
-    # find for a node how many additional interactions we could add
-    possibleInteractions = [0]*numNodes
-    for node in range(numNodes) :
-        possibleInteractions[node] = maxInteractions - degrees[node]
-        if possibleInteractions[node] <= 0 :
-            possibleInteractions[node] = 0
-        else :
-            possibleInteractions[node] = min(numberOfInteractions, possibleInteractions[node])
     
     for node in range(numNodes) :
-        if possibleInteractions[node] <= 0 :
+        achievablePeers = [u for u in possiblePeers[node] if maxInteractions > G.degree(u)]
+        possibleInteractions = maxInteractions - G.degree(node)
+        interactions = min(len(achievablePeers), possibleInteractions, 3)
+        
+        if interactions == 0 :
             continue
-        
-        #choose randomly from possible peers
-        temp = [u for u in possiblePeers[node].keys() if possibleInteractions[u] >= 1 and not(G.has_edge(u, node))]
-        peers = list(np.random.choice(temp, size=possibleInteractions[node], replace=False))
+        else :
+            peers = list(np.random.choice(achievablePeers, size=interactions, replace=False))
 
-        peers.sort(key=possiblePeers[node].get, reverse=True)
-        
-        #split possible ways of interaction in sublists and choose randomly an activity from each sublist
-        weights = [np.random.choice(sublist) for sublist in np.array_split(range(activitiesCount), possibleInteractions[node])]
-        
-        weights.sort(reverse=True)
+            counter = dict.fromkeys(["A", "B", "C"], 0)
+            counter.update(Counter([e[2]["weight"] for e in G.edges(data=True)]))
+            weights = [key for key, value in sorted(counter.items(), key=lambda item: item[1])][:interactions]
+            
 
-        #add new interaction to the graph
-        for peer, weight in zip(peers, weights) :
-            G.add_edge(node, peer, interaction_index=weight)
-            possibleInteractions[node] = max(possibleInteractions[node] - 1, 0)
-            possibleInteractions[peer] = max(possibleInteractions[peer] - 1, 0)
-            # if G.has_edge(node, peer) :
-            #     G[node][peer]["interaction_index"] = round(0.5*(weight + G[node][peer]["interaction_index"]))
-            # else :
-            #     G.add_edge(node, peer, interaction_index=weight)
-        # print(possibleInteractions)        
+            for peer, weight in zip(peers, weights) :
+                G.add_edge(node, peer, weight=weight)
+
+    for node in range(numNodes) :
+        G.nodes[node]["A"] = None
+        G.nodes[node]["B"] = None
+        G.nodes[node]["C"] = None
+
+    activitiesIndex = {"A": [1, 2], "B": [3, 4], "C": [5, 6]}
+    edgesToRemove = []
+
+    for u, v, d in G.edges(data="weight") :
+        node1 = G.nodes[u][d]
+        node2 = G.nodes[v][d]
+        if node1 is None and node2 is None :
+            activity = np.random.choice(activitiesIndex[d])
+            G.nodes[u][d] = activity
+            G.nodes[v][d] = activity
+            G[u][v]["weight"] = activity
+        elif node1 is not None and node2 is not None:
+            edgesToRemove.append((u,v))
+        else :
+            activity = node1 or node2    
+            G.nodes[u][d] = activity
+            G.nodes[v][d] = activity
+            G[u][v]["weight"] = activity 
+
+    
+    G.remove_edges_from(edgesToRemove)
+   
+
     return G
 
 
@@ -230,5 +243,41 @@ def getActivity(index) :
             "to be volunteers",
             "to be teammates in a sports team"]
     
-    return activities[index]
+    return activities[index-1]
 
+
+def findActivitiesStatistics(G) :
+    nodesPerActivity = dict.fromkeys(range(1, 7), 0)
+    for node in G.nodes() :
+        for activity in G.nodes[node].values() :
+            if activity is not None :
+                nodesPerActivity[activity] += 1
+
+    fig = plt.figure(figsize = (12, 5))
+    activities = ["intensity: 1\n\nto share content,\nchat in a social\nnetwork platform",
+            "intensity: 2\n\nto participate\nin debate/group\ndiscussion\n& presentation",
+            "intensity: 3\n\nto play games",
+            "intensity: 4\n\nto study in group\nor work on\ncollaborative projects",
+            "intensity: 5\n\nto be volunteers",
+            "intensity: 6\n\nto be teammates\nin a sports team"]
+    plt.bar(activities, nodesPerActivity.values(), color ="#3a3b95", width = 0.4)
+    plt.grid(True)
+    plt.xlabel("activity type")
+    plt.ylabel("No. of nodes")
+    plt.title("No. of nodes = f(activity type)")
+    plt.show()
+
+    nodesPerActivityEngagement = dict.fromkeys(range(4), 0)
+    for node in G.nodes() :
+        numberOfActivities = sum(item is not None for item in G.nodes[node].values())
+        nodesPerActivityEngagement[numberOfActivities] += 1
+    activityEngagement = ["activities: 0", 
+                          "activities: 1", 
+                          "activities: 2", 
+                          "activities: 3"]
+    plt.bar(activityEngagement, nodesPerActivityEngagement.values(), color ="#3a3b95", width = 0.4)
+    plt.grid(True)
+    plt.xlabel("No. of activities")
+    plt.ylabel("No. of nodes")
+    plt.title("No. of nodes = f(activity engagement)")
+    plt.show()
