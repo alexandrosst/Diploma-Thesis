@@ -12,8 +12,16 @@
 <p align="justify">Στο <b>μέρος ΙΙ</b> εξετάζεται μια έμμεση πηγή πληροφορίας για τις προτιμήσεις των μαθητών που είναι η ανάλυση συναισθήματος συνομιλιών που συμμετέχουν. Προς αυτή την κατεύθυνση σχεδιάζεται ένα νευρωνικό δίκτυο για την ταξινόμηση κειμένου σε θετικό συναίσθημα, αρνητικό συναίσθημα ή ουδέτερο κάνοντας χρήση ενός προεκπαιδευμένου μοντέλου παραγωγής embeddings. Τελικά, κατασκευάζεται ένα συναισθηματικό προφίλ για κάθε χρήστη της συνομιλίας και υπολογίζεται μια εκτίμηση της έντασης της αλληλεπίδρασης των χρηστών.</p>
 
 ## Περιγραφή των αρχείων
-<p>Περιλαμβάνει δύο υποκαταλόγους που αντιστοιχούν στα δύο επιμέρους μέρη της διπλωματικής. Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/sentiment%20analysis>sentiment analysis</a> αντιστοιχεί στο μέρος ΙΙ της εργασίας.
-</p>
+<p>Περιλαμβάνει δύο υποκαταλόγους που αντιστοιχούν στα δύο επιμέρους μέρη της διπλωματικής. Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/sentiment%20analysis>sentiment analysis</a> αντιστοιχεί στο μέρος ΙΙ της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
+<ul>
+    <li><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/chat_words.txt>chat_words.txt</a>: πρόκειται γι' αρχείο με συγκεντρωμένες συντομογραφίες του διαδικτυακού λόγου (π.χ. το omg αντιστοιχίζεται στο oh my god).</li>
+    <li><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/phrases.xlsx>phrases.xlsx</a>: πρόκειται γι' αρχείο με συγκεντρωμένες φράσεις που σχετίζονται με τη σχολική πραγματικότητα. Η πλεονότητα αυτών δημιουργήθηκε με χρήση του Bing Chat, αλλά αρκετές είναι προϊόν έμπνευσης του @alexandrosst.</li>
+    <li><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/train.csv>train.csv</a>, <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/validation.csv>validation.csv</a>, <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/test.csv>test.csv</a>: πρόκειται γι' αρχεία που προέρχονται από το επίσημο <a href=https://github.com/google-research/google-research/tree/master/goemotions>GoEmotions Dataset Repository</a></li>. Η μόνη διαφορά είναι η απομάκρυνση των δειγμάτων με διφορούμενο συναίσθημα ή με διπλή κατηγοριοποίηση (θετικό & ουδέτερο, θετικό & αρνητικό, αρνητικό & ουδέτερο) που είναι λίγα στο πλήθος. Επίσης, στο train.csv έχουν ενσωματωθεί και τα δείγματα από το αρχείο phrases.xlsx.
+    <li><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/neural_network.ipynb>neural_network.ipynb</a>: πρόκειται για τ' αρχείο με τον κώδικα της υλοποίησης με το νευρωνικό δίκτυο και τη συνάρτηση υπολογισμού της εκτίμησης έντασης αλληλεπίδρασης μεταξύ δύο μαθητών βασισμένη σε μια συνομιλία τους.</li>
+</ul>
+
+
+
 
 ## Αναφορές
 > Demszky, Dorottya and Movshovitz-Attias, Dana and Koenecke, Allison and Cowen, Alan and Nemade, Gaurav and Goyal, Naman and Jurafsky, Dan. "GoEmotions: A Dataset of Fine-Grained Emotions." arXiv preprint arXiv:2005.00547 (2020).
