@@ -6,4 +6,4 @@
 <p>Περιλαμβάνει δύο υποκαταλόγους που αντιστοιχούν στα δύο επιμέρους μέρη της διπλωματικής. Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/sentiment%20analysis>sentiment analysis</a> αντιστοιχεί στο μέρος ΙΙ της εργασίας.
 </p>
 
-![cover.pdf](https://github.com/alexandrosst/Diploma-Thesis/blob/main/cover1.svg)
+![cover.pdf](https://github.com/alexandrosst/Diploma-Thesis/blob/main/img.svg)
