@@ -31,8 +31,9 @@
 </ul>
 
 ## Παραδείγματα εκτέλεσης
-### Περίπτωση 1: Γράφος προτίμησης
+### Περίπτωση 1η: Γράφος προτίμησης
 Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/preferenceGraph.ipynb>preferenceGraph.ipynb</a>.
+
 Για τη δημιουργία του γράφου προτίμησης και την αποθήκευσή του ως αρχείο `preferenceGraph.json` έχουμε:
 
 ```python
@@ -48,9 +49,10 @@ G = createPreferenceGraph(**options)
 saveGraphJson(G, "./preferenceGraph.json")
 ```
 
-### Περίπτωση 2: Γράφος αλληλεπίδρασης
+### Περίπτωση 2η: Γράφος αλληλεπίδρασης
 Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/interactionGraph.ipynb>interactionGraph.ipynb</a>.
-Για τη φόρτωση του γράφου προτίμησης από το αρχείο `preferenceGraph.json` και τη δημιουργία του γράφου αλληλεπίδραση έχουμε:
+
+Για τη φόρτωση του γράφου προτίμησης από το αρχείο `./preferenceGraph.json` και τη δημιουργία του γράφου αλληλεπίδρασης έχουμε:
 
 ```python
 path = "./preferenceGraph.json"
@@ -64,6 +66,11 @@ options = {
 # create interaction graph
 G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)
 ```
+
+### Περίπτωση 3η: Εκτίμηση έντασης αλληλεπίδρασης σε μια διαδικτυακή συνομιλία
+Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/neural_network.ipynb>neural_network.ipynb</a>.
+
+Για την εύρεση της έντασης αλληλεπίδρασης σε μια τυχαία συνομιλία έχουμε:
 
 ## Αναφορές
 > Demszky, Dorottya and Movshovitz-Attias, Dana and Koenecke, Allison and Cowen, Alan and Nemade, Gaurav and Goyal, Naman and Jurafsky, Dan. "GoEmotions: A Dataset of Fine-Grained Emotions." arXiv preprint arXiv:2005.00547 (2020).
