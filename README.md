@@ -12,7 +12,10 @@
 <p align="justify">Στο <b>μέρος ΙΙ</b> εξετάζεται μια έμμεση πηγή πληροφορίας για τις προτιμήσεις των μαθητών που είναι η ανάλυση συναισθήματος συνομιλιών που συμμετέχουν. Προς αυτή την κατεύθυνση σχεδιάζεται ένα νευρωνικό δίκτυο για την ταξινόμηση κειμένου σε θετικό συναίσθημα, αρνητικό συναίσθημα ή ουδέτερο κάνοντας χρήση ενός προεκπαιδευμένου μοντέλου παραγωγής embeddings. Τελικά, κατασκευάζεται ένα συναισθηματικό προφίλ για κάθε χρήστη της συνομιλίας και υπολογίζεται μια εκτίμηση της έντασης της αλληλεπίδρασης των χρηστών.</p>
 
 ## Περιγραφή των αρχείων
-<p>Περιλαμβάνει δύο υποκαταλόγους που αντιστοιχούν στα δύο επιμέρους μέρη της διπλωματικής. Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/sentiment%20analysis>sentiment analysis</a> αντιστοιχεί στο μέρος ΙΙ της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
+<p align="justify">Περιλαμβάνει δύο υποκαταλόγους που αντιστοιχούν στα δύο επιμέρους μέρη της διπλωματικής.</p>
+<p align="justify">Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/preference_interaction_graph>preference_interaction_graph</a> αντιστοιχεί στο μέρος Ι της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
+
+<p align="justify">Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/sentiment%20analysis>sentiment_analysis</a> αντιστοιχεί στο μέρος ΙΙ της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
 <ul>
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/chat_words.txt>chat_words.txt</a>: πρόκειται γι' αρχείο με συγκεντρωμένες συντομογραφίες του διαδικτυακού λόγου (π.χ. το omg αντιστοιχίζεται στο oh my god).</p></li>
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/phrases.xlsx>phrases.xlsx</a>: πρόκειται για αρχείο με συγκεντρωμένες φράσεις που σχετίζονται με τη σχολική πραγματικότητα. Η πλεονότητα αυτών δημιουργήθηκε με χρήση του Bing Chat, αλλά αρκετές είναι προϊόν έμπνευσης του συγγραφέα της εργασίας.</p></li>
