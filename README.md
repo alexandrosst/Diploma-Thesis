@@ -33,7 +33,8 @@
 ## Παραδείγματα εκτέλεσης
 ### Περίπτωση 1: Γράφος προτίμησης
 Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/preferenceGraph.ipynb>preferenceGraph.ipynb</a>.
-<p align="justify">Για τη δημιουργία του γράφου προτίμησης και την αποθήκευσή του ως αρχείο preferenceGraph.json έχουμε:</p>
+<p align="justify">Για τη δημιουργία του γράφου προτίμησης και την αποθήκευσή του ως αρχείο `preferenceGraph.json` έχουμε:</p>
+
 ```python
 options = {
     "n" : 100, # number of students
@@ -45,8 +46,7 @@ G = createPreferenceGraph(**options)
 
 # save preference graph in currect directory
 saveGraphJson(G, "./preferenceGraph.json")
-```    
-
+```
 
 ## Αναφορές
 > Demszky, Dorottya and Movshovitz-Attias, Dana and Koenecke, Allison and Cowen, Alan and Nemade, Gaurav and Goyal, Naman and Jurafsky, Dan. "GoEmotions: A Dataset of Fine-Grained Emotions." arXiv preprint arXiv:2005.00547 (2020).
