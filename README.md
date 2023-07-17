@@ -13,13 +13,15 @@
 
 ## Περιγραφή των αρχείων
 <p align="justify">Περιλαμβάνει δύο υποκαταλόγους που αντιστοιχούν στα δύο επιμέρους μέρη της διπλωματικής.</p>
-<p align="justify">Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/preference_interaction_graph>preference_interaction_graph</a> αντιστοιχεί στο μέρος Ι της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
+### Κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/preference_interaction_graph>preference_interaction_graph</a>
+<p align="justify">Ο κατάλογος αυτός σχετίζεται με το μέρος Ι της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
 <ul>
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/preferenceGraph.ipynb>preferenceGraph.ipynb</a> ⇝ περιλαμβάνει τον κώδικα της υλοποίησης για την κατασκευή του γράφου προτίμησης των μαθητών που προσομοιώνει τα πορίσματα ενός ερωτηματολογίου.</p></li>
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/interactionGraph.ipynb>interactionGraph.ipynb</a> ⇝ περιλαμβάνει τον κώδικα της υλοποίησης για την κατασκευή του γράφου αλληλεπίδρασης των μαθητών που χρησιμοποιεί τη γνώση του γράφου προτίμησης.</p></li>
 </ul>
 
-<p align="justify">Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/sentiment%20analysis>sentiment_analysis</a> αντιστοιχεί στο μέρος ΙΙ της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
+### Κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/sentiment%20analysis>sentiment_analysis</a>
+<p align="justify">Ο κατάλογος αυτός σχετίζεται με το μέρος ΙΙ της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
 <ul>
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/chat_words.txt>chat_words.txt</a> ⇝ πρόκειται γι' αρχείο με συγκεντρωμένες συντομογραφίες του διαδικτυακού λόγου (π.χ. το "omg" αντιστοιχίζεται στο "oh my god", το "imo" αντιστοιχίζεται στο "in my opinion" κ.ά.).</p></li>
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/phrases.xlsx>phrases.xlsx</a> ⇝ πρόκειται για αρχείο με συγκεντρωμένες φράσεις που σχετίζονται με τη σχολική πραγματικότητα. Η πλεονότητα αυτών δημιουργήθηκε με χρήση του Bing Chat, αλλά αρκετές είναι προϊόν έμπνευσης του συγγραφέα της εργασίας.</p></li>
