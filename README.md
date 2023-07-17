@@ -16,6 +16,7 @@
 <p align="justify">Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/preference_interaction_graph>preference_interaction_graph</a> αντιστοιχεί στο μέρος Ι της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
 <ul>
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/preferenceGraph.ipynb>preferenceGraph.ipynb</a> ⇝ περιλαμβάνει τον κώδικα της υλοποίησης για την κατασκευή του γράφου προτίμησης των μαθητών που προσομοιώνει τα πορίσματα ενός ερωτηματολογίου.</p></li>
+    <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/interactionGraph.ipynb>interactionGraph.ipynb</a> ⇝ περιλαμβάνει τον κώδικα της υλοποίησης για την κατασκευή του γράφου αλληλεπίδρασης των μαθητών που χρησιμοποιεί τη γνώση του γράφου προτίμησης.</p></li>
 </ul>
 
 <p align="justify">Ο κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/sentiment%20analysis>sentiment_analysis</a> αντιστοιχεί στο μέρος ΙΙ της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
