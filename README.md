@@ -30,8 +30,22 @@
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/neural_network.ipynb>neural_network.ipynb</a> ⇝ πρόκειται για το αρχείο με τον κώδικα της υλοποίησης, δηλαδή για το νευρωνικό δίκτυο και τη συνάρτηση υπολογισμού της εκτίμησης έντασης αλληλεπίδρασης μεταξύ δύο μαθητών βασισμένη σε μια συνομιλία τους. Για την παραγωγή embeddings έγινε χρήση του προεκπαιδευμένου μοντέλου <a href=https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest>twitter-roberta-base-sentiment-latest</a>.</p></li>
 </ul>
 
-## Παράδειγμα εκτέλεσης
+## Παραδείγματα εκτέλεσης
+### Περίπτωση 1: Γράφος προτίμησης
+Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/preferenceGraph.ipynb>preferenceGraph.ipynb</a>.
+Για τη δημιουργία του γράφου προτίμησης και την αποθήκευσή του ως .json έχουμε:
+```python
+options = {
+    "n" : 100, # number of students
+    "maxPreferencesPerCategory" : 10 # maximum possible number of edges (student's thoughts) per opinion item
+}
 
+# create preference graph
+G = createPreferenceGraph(**options)
+
+# save preference graph
+saveGraphJson(G, "./preferenceGraph.json")
+    
 
 
 ## Αναφορές
