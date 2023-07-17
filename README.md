@@ -72,5 +72,25 @@ G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)
 
 Για την εύρεση της έντασης αλληλεπίδρασης σε μια τυχαία συνομιλία έχουμε:
 
+```python
+# random chat between two students
+dialogue = [
+    "Hey, what's up? 😊",
+    "Not much. I'm just really frustrated about the programming project we turned in yesterday. 😔",
+    "Why is that? What happened? 😟",
+    "I feel like you didn't do your part and it really hurt our grade. You were supposed to work on the front-end and you barely did anything. 😞",
+    "What are you talking about? I worked really hard on the front-end! You were the one who was supposed to do the back-end and you didn't even finish it! 😠",
+    "That's not true! I finished everything on time and it was all working perfectly. You were the one who was slacking off and not contributing anything. 😠",
+    "I can't believe you're saying that! I worked just as hard as you did and I did everything I was supposed to do. You're just trying to blame me for your own mistakes. 😠",
+    "No, I'm not! You're the one who messed everything up and now we're both going to suffer because of it. I can't believe you're being so selfish and stubborn about this. 😠",
+    "I'm not being selfish or stubborn! You're just trying to make me look bad so you can feel better about yourself. It's not going to work. We both know what really happened. 😠",
+    "I can't even talk to you right now. You're being so unreasonable and unfair. I thought we were friends, but I guess I was wrong. 😔",
+    "I thought so too, but I guess I was wrong too. Maybe we should just work on our own projects from now on. It's obviously not working out between us. 😔"
+]
+
+# get the intensity of chat
+create_sentimental_profile(trained_model, dialogue[::2], dialogue[1::2])
+```
+
 ## Αναφορές
 > Demszky, Dorottya and Movshovitz-Attias, Dana and Koenecke, Allison and Cowen, Alan and Nemade, Gaurav and Goyal, Naman and Jurafsky, Dan. "GoEmotions: A Dataset of Fine-Grained Emotions." arXiv preprint arXiv:2005.00547 (2020).
