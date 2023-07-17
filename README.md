@@ -13,6 +13,7 @@
 
 ## Περιγραφή των αρχείων
 <p align="justify">Περιλαμβάνει δύο υποκαταλόγους που αντιστοιχούν στα δύο επιμέρους μέρη της διπλωματικής.</p>
+
 ### Κατάλογος <a href=https://github.com/alexandrosst/Diploma-Thesis/tree/main/preference_interaction_graph>preference_interaction_graph</a>
 <p align="justify">Ο κατάλογος αυτός σχετίζεται με το μέρος Ι της εργασίας. Περιλαμβάνει τα εξής αρχεία:</p>
 <ul>
