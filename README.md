@@ -33,7 +33,7 @@
 ## Παραδείγματα εκτέλεσης
 ### Περίπτωση 1: Γράφος προτίμησης
 Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/preferenceGraph.ipynb>preferenceGraph.ipynb</a>.
-<p align="justify">Για τη δημιουργία του γράφου προτίμησης και την αποθήκευσή του ως αρχείο `preferenceGraph.json` έχουμε:</p>
+Για τη δημιουργία του γράφου προτίμησης και την αποθήκευσή του ως αρχείο `preferenceGraph.json` έχουμε:
 
 ```python
 options = {
@@ -46,6 +46,23 @@ G = createPreferenceGraph(**options)
 
 # save preference graph in currect directory
 saveGraphJson(G, "./preferenceGraph.json")
+```
+
+### Περίπτωση 2: Γράφος αλληλεπίδρασης
+Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/interactionGraph.ipynb>interactionGraph.ipynb</a>.
+Για τη φόρτωση του γράφου προτίμησης από το αρχείο `preferenceGraph.json` και τη δημιουργία του γράφου αλληλεπίδραση έχουμε:
+
+```python
+path = "./preferenceGraph.json"
+
+options = {
+    "threshold" : 0.4, # threshold for probability
+    "maxInteractions" : 4, # maximum possible number of interactions for a node
+    "maxTimestamp" : 15 # number of snapshots
+}
+
+# create interaction graph
+G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)
 ```
 
 ## Αναφορές
