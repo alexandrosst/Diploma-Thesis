@@ -94,4 +94,5 @@ create_sentimental_profile(trained_model, dialogue[::2], dialogue[1::2])
 
 ## Αναφορές
 > Google Research. (2021). GoEmotions. GitHub. https://github.com/google-research/google-research/tree/master/goemotions
+
 > CardiffNLP. (2022). Twitter RoBERTa-base Sentiment Analysis. Hugging Face. https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest
