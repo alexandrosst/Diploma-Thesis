@@ -33,7 +33,7 @@
 ## Παραδείγματα εκτέλεσης
 ### Περίπτωση 1: Γράφος προτίμησης
 Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/preferenceGraph.ipynb>preferenceGraph.ipynb</a>.
-<p align="justify">Για τη δημιουργία του γράφου προτίμησης και την αποθήκευσή του ως αρχείο `preferenceGraph.json` έχουμε:</p>
+<p align="justify">Για τη δημιουργία του γράφου προτίμησης και την αποθήκευσή του ως αρχείο preferenceGraph.json έχουμε:</p>
 ```python
 options = {
     "n" : 100, # number of students
