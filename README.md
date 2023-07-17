@@ -30,6 +30,12 @@
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/neural_network.ipynb>neural_network.ipynb</a> ⇝ πρόκειται για το αρχείο με τον κώδικα της υλοποίησης, δηλαδή για το νευρωνικό δίκτυο και τη συνάρτηση υπολογισμού της εκτίμησης έντασης αλληλεπίδρασης μεταξύ δύο μαθητών βασισμένη σε μια συνομιλία τους. Για την παραγωγή embeddings έγινε χρήση του προεκπαιδευμένου μοντέλου <a href=https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest>twitter-roberta-base-sentiment-latest</a>.</p></li>
 </ul>
 
+## Aπαιτήσεις
+<ul>
+    <li>Python 3.11.4</li>
+    <li>Torch 2.0.1</li>
+</ul>
+
 ## Παραδείγματα εκτέλεσης
 ### Περίπτωση 1η: Γράφος προτίμησης
 Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/preferenceGraph.ipynb>preferenceGraph.ipynb</a>.
