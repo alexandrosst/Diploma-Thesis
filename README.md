@@ -55,7 +55,7 @@ G = createPreferenceGraph(**options) # G is a networkx DiGraph
 saveGraphJson(G, "./preferenceGraph.json")
 ```
 
-Κάθε ακμή του γράφου προτίμησης έχει δύο ειδών βάρη, το "opinion" με την αναλυτική περιγραφή της γνώμης και το "opinionItem" με το index αυτού της περιγραφής. Δηλαδή για μια ακμή έχουμε:
+<p align="justify">Κάθε ακμή του γράφου προτίμησης έχει δύο ειδών βάρη, το "opinion" με την αναλυτική περιγραφή της γνώμης και το "opinionItem" με το index αυτού της περιγραφής. Δηλαδή για μια ακμή έχουμε:</p>
 
 ```python
 u = ...
