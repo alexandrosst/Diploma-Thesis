@@ -66,7 +66,7 @@ print(G[u][v])
 ### Περίπτωση 2η: Γράφος αλληλεπίδρασης
 Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/interactionGraph.ipynb>interactionGraph.ipynb</a>.
 
-Για τη φόρτωση του γράφου προτίμησης από το αρχείο `./preferenceGraph.json` και τη δημιουργία του γράφου αλληλεπίδρασης έχουμε:
+<p align="justify">Για τη φόρτωση του γράφου προτίμησης από το αρχείο `./preferenceGraph.json` και τη δημιουργία του γράφου αλληλεπίδρασης έχουμε:</p>
 
 ```python
 path = "./preferenceGraph.json"
@@ -81,7 +81,7 @@ options = {
 G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)["graph"]
 ```
 
-Κάθε κόμβος έχει τρία βάρη, "Α", "Β", "C" που έχει το index της δραστηριότητας. Κάθε ακμή έχει ένα βάρος "weight" που έχει το index της δραστηριότητας. Έχουμε:
+<p align="justify">Κάθε κόμβος έχει τρία βάρη, "Α", "Β", "C" που έχει το index της δραστηριότητας. Κάθε ακμή έχει ένα βάρος "weight" που έχει το index της δραστηριότητας. Έχουμε:</p>
 
 ```python
 t = ... # timestamp
