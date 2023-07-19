@@ -85,8 +85,8 @@ G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)
 
 ```python
 t = ... # timestamp
-u = ... # node1
-v = ... # node2
+u = ... # node 1
+v = ... # node 2
 
 print(G[t].nodes[u]) # weights of node u at timestamp t
 print(G[t].nodes[v]) # weights of node v at timestamp t
