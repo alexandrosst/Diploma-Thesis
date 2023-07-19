@@ -49,10 +49,18 @@ options = {
 }
 
 # create preference graph
-G = createPreferenceGraph(**options)
+G = createPreferenceGraph(**options) # G is a networkx DiGraph
 
 # save preference graph in currect directory
 saveGraphJson(G, "./preferenceGraph.json")
+```
+
+Κάθε ακμή του γράφου προτίμησης έχει δύο ειδών βάρη, το "opinion" με την αναλυτική περιγραφή της γνώμης και το "opinionItem" με το index αυτού της περιγραφής. Δηλαδή για μια ακμή έχουμε:
+
+```python
+u=...
+v=...
+print(G[u][v])
 ```
 
 ### Περίπτωση 2η: Γράφος αλληλεπίδρασης
@@ -71,6 +79,19 @@ options = {
 
 # create interaction graph
 G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)["graph"]
+```
+
+Κάθε κόμβος έχει τρία βάρη, "Α", "Β", "C" που έχει το index της δραστηριότητας. Κάθε ακμή έχει ένα βάρος "weight" που έχει το index της δραστηριότητας. Έχουμε:
+
+```python
+t = ... # timestamp
+u=... # node1
+v=... # node2
+
+print(G[t][u][v]) # weights of edge (u,v)
+print(G[t].nodes[u]) # weights of node u at timestamp t
+print(G[t].nodes[v]) # weights of node v at timestamp t
+
 ```
 
 ### Περίπτωση 3η: Εκτίμηση έντασης αλληλεπίδρασης σε μια διαδικτυακή συνομιλία
