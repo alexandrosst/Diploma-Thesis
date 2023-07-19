@@ -66,7 +66,7 @@ print(G[u][v])
 ### Περίπτωση 2η: Γράφος αλληλεπίδρασης
 Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/interactionGraph.ipynb>interactionGraph.ipynb</a>.
 
-<p align="justify">Για τη φόρτωση του γράφου προτίμησης από το αρχείο `./preferenceGraph.json` και τη δημιουργία του γράφου αλληλεπίδρασης έχουμε:</p>
+Για τη φόρτωση του γράφου προτίμησης από το αρχείο `./preferenceGraph.json` <p align="justify">και τη δημιουργία του γράφου αλληλεπίδρασης έχουμε:</p>
 
 ```python
 path = "./preferenceGraph.json"
