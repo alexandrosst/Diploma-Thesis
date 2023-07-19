@@ -90,7 +90,7 @@ v = ... # node2
 
 print(G[t].nodes[u]) # weights of node u at timestamp t
 print(G[t].nodes[v]) # weights of node v at timestamp t
-print(G[t][u][v]) # weights of edge (u,v)
+print(G[t][u][v]) # weights of edge (u,v) at timestamp t
 
 ```
 
