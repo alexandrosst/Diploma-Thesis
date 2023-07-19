@@ -58,9 +58,9 @@ saveGraphJson(G, "./preferenceGraph.json")
 <p align="justify">Κάθε ακμή του γράφου προτίμησης έχει δύο ειδών βάρη, το "opinion" με την αναλυτική περιγραφή της γνώμης και το "opinionItem" με το index αυτού της περιγραφής. Δηλαδή για μια ακμή έχουμε:</p>
 
 ```python
-u = ...
-v = ...
-print(G[u][v])
+u = ... # node 1
+v = ... # node 2
+print(G[u][v]) # weights of edge (u,v)
 ```
 
 ### Περίπτωση 2η: Γράφος αλληλεπίδρασης
@@ -88,9 +88,9 @@ t = ... # timestamp
 u = ... # node1
 v = ... # node2
 
-print(G[t][u][v]) # weights of edge (u,v)
 print(G[t].nodes[u]) # weights of node u at timestamp t
 print(G[t].nodes[v]) # weights of node v at timestamp t
+print(G[t][u][v]) # weights of edge (u,v)
 
 ```
 
