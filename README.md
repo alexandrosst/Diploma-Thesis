@@ -70,7 +70,7 @@ options = {
 }
 
 # create interaction graph
-G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)
+G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)["graph"]
 ```
 
 ### Περίπτωση 3η: Εκτίμηση έντασης αλληλεπίδρασης σε μια διαδικτυακή συνομιλία
