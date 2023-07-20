@@ -98,9 +98,8 @@ print(G[t][u][v]) # weights of edge (u,v) at timestamp t
 ```
 
 ### Περίπτωση 3η: Εκτίμηση έντασης αλληλεπίδρασης σε μια διαδικτυακή συνομιλία
-Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/sentiment_profile.ipynb>sentiment_profile.ipynb</a>.
-
-Για την εύρεση της έντασης αλληλεπίδρασης σε μια τυχαία συνομιλία έχουμε:
+<p align="justify">Εκτελούμε πρώτα τον κώδικα στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/neural_network.ipynb>neural_network.ipynb</a> για την εκπαίδευση του νευρωνικού δικτύου και την αποθήκευσή του.</p>
+Εργαζόμαστε έπειτα στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/sentiment_profile.ipynb>sentiment_profile.ipynb</a>. Για την εύρεση της έντασης αλληλεπίδρασης σε μια τυχαία συνομιλία έχουμε:
 
 ```python
 # random chat between two students
