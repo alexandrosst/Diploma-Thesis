@@ -49,7 +49,7 @@ options = {
 }
 
 # create preference graph
-G = createPreferenceGraph(**options) # G is a networkx DiGraph
+G = createPreferenceGraph(**options) # G is a networkx MultiDiGraph
 
 # save preference graph in currect directory
 saveGraphJson(G, "./preferenceGraph.json")
@@ -78,7 +78,7 @@ options = {
 }
 
 # create interaction graph
-G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)["graph"]
+G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)["graph"] # G is a networkx Graph
 ```
 
 <p align="justify">Κάθε κόμβος έχει τρία βάρη, "Α", "Β", "C" που έχει το index της δραστηριότητας. Κάθε ακμή έχει ένα βάρος "weight" που έχει το index της δραστηριότητας. Έχουμε:</p>
