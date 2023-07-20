@@ -56,7 +56,7 @@ G = createPreferenceGraph(**options) # G is a networkx MultiDiGraph
 saveGraphJson(G, "./preferenceGraph.json")
 ```
 
-<p align="justify">Αν θέλουμε να χρησιμοποιήσουμε το γράφο προτίμησης για την κατασκευή του γράφου αλληλεπίδρασης στο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/interactionGraph.ipynb>interactionGraph.ipynb</a> χρειάζεται να το αποθηκεύσουμε.</p>
+<p align="justify">Αν θέλουμε να χρησιμοποιήσουμε το γράφο προτίμησης για την κατασκευή του γράφου αλληλεπίδρασης στο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/preference_interaction_graph/interactionGraph.ipynb>interactionGraph.ipynb</a> χρειάζεται να τον αποθηκεύσουμε ως .json αρχείο.</p>
 
 <p align="justify">Κάθε ακμή του γράφου προτίμησης έχει δύο ειδών βάρη, το "opinion" με την αναλυτική περιγραφή της γνώμης και το "opinionItem" με το index αυτού της περιγραφής. Δηλαδή για μια ακμή έχουμε:</p>
 
