@@ -27,7 +27,8 @@
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/chat_words.txt>chat_words.txt</a> ⇝ πρόκειται γι' αρχείο με συγκεντρωμένες συντομογραφίες του διαδικτυακού λόγου (π.χ. το "omg" αντιστοιχίζεται στο "oh my god", το "imo" αντιστοιχίζεται στο "in my opinion" κ.ά.).</p></li>
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/phrases.xlsx>phrases.xlsx</a> ⇝ πρόκειται για αρχείο με συγκεντρωμένες φράσεις που σχετίζονται με τη σχολική πραγματικότητα. Η πλεονότητα αυτών δημιουργήθηκε με χρήση του Bing Chat.</p></li>
     <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/train.csv>train.csv</a>, <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/validation.csv>validation.csv</a>, <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/test.csv>test.csv</a> ⇝ πρόκειται για αρχεία που προέρχονται από το επίσημο <a href=https://github.com/google-research/google-research/tree/master/goemotions>GoEmotions Dataset Repository</a>. Η μόνη διαφορά είναι η απομάκρυνση των δειγμάτων με διφορούμενο συναίσθημα ή με διπλή κατηγοριοποίηση (θετικό & ουδέτερο, θετικό & αρνητικό, αρνητικό & ουδέτερο) που είναι λίγα στο πλήθος. Επίσης, στο train.csv έχουν ενσωματωθεί και τα δείγματα από το αρχείο phrases.xlsx. Τέλος, διαφέρουν στο ότι έχουν υποστεί προεπεξεργασία στα κείμενά τους.</p></li>
-    <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/neural_network.ipynb>neural_network.ipynb</a> ⇝ πρόκειται για το αρχείο με τον κώδικα της υλοποίησης, δηλαδή για το νευρωνικό δίκτυο και τη συνάρτηση υπολογισμού της εκτίμησης έντασης αλληλεπίδρασης μεταξύ δύο μαθητών βασισμένη σε μια συνομιλία τους. Για την παραγωγή embeddings έγινε χρήση του προεκπαιδευμένου μοντέλου <a href=https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest>twitter-roberta-base-sentiment-latest</a>.</p></li>
+    <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/neural_network.ipynb>neural_network.ipynb</a> ⇝ πρόκειται για το αρχείο με τον κώδικα της υλοποίησης για την δημιουργία και την εκπαίδευση ενός νευρωνικού δικτύου με χρήση torch. Για την παραγωγή embeddings έγινε χρήση του προεκπαιδευμένου μοντέλου <a href=https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest>twitter-roberta-base-sentiment-latest</a>. Υπάρχει η δυνατότητα αποθήκευσης του εκπαιδευμένου μοντέλου σε αρχείο.</p></li>
+    <li><p align="justify"><a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/sentiment_profile.ipynb>sentiment_profile.ipynb</a> ⇝ πρόκειται για αρχείο με τον κώδικα της υλοποίησης για την κατασκευή του συναισθηματικού προφίλ ενός διαλόγου (ή ενός κειμένου), καθώς επίσης και την εκτίμηση της έντασης αλληλεπίδρασης μεταξύ δύο μαθητών βασισμένη σε μια συνομιλία τους. Προϋποθέτει την ύπαρξη ενός εκπαιδευμένου μοντέλου, όπως αυτό προκύπτει από το αρχείο neural_network.ipynb.</p></li>
 </ul>
 
 ## Aπαιτήσεις
@@ -95,7 +96,7 @@ print(G[t][u][v]) # weights of edge (u,v) at timestamp t
 ```
 
 ### Περίπτωση 3η: Εκτίμηση έντασης αλληλεπίδρασης σε μια διαδικτυακή συνομιλία
-Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/neural_network.ipynb>neural_network.ipynb</a>.
+Εργαζόμαστε στο αρχείο <a href=https://github.com/alexandrosst/Diploma-Thesis/blob/main/sentiment%20analysis/sentiment_profile.ipynb>sentiment_profile.ipynb</a>.
 
 Για την εύρεση της έντασης αλληλεπίδρασης σε μια τυχαία συνομιλία έχουμε:
 
