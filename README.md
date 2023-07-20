@@ -78,7 +78,7 @@ options = {
 }
 
 # create interaction graph
-G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)["graph"] # G is a networkx Graph
+G = createInteractionGraph(preferenceGraph=readPreferenceGraph(path), **options)["graph"] # G is a list of networkx Graph
 ```
 
 <p align="justify">Κάθε κόμβος έχει τρία βάρη, "Α", "Β", "C" που έχει το index της δραστηριότητας. Κάθε ακμή έχει ένα βάρος "weight" που έχει το index της δραστηριότητας. Έχουμε:</p>
